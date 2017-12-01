@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Bro-Finder</string>
+    <string name="APPLICATION_ID">APPLICATION ID</string>
 </resources>
