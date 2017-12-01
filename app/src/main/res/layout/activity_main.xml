@@ -6,17 +6,8 @@
     android:layout_height="match_parent"
     tools:context="memelord.com.bro_finder.MainActivity">
     
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:id="@+id/toptoolbar"
-        app:titleTextColor="#FF0000"
-        android:elevation="2dp"
-
-        >
 
 
-    </android.support.v7.widget.Toolbar>
 
 
     <TextView
