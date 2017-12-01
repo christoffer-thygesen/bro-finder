@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
-
+    private static final String TAG = "EmailPassword";
     private FirebaseAuth broAuth;
 
     @Override
@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
 
         FirebaseUser currentUser = broAuth.getCurrentUser();
-        updateUI(currentUser);
+
     }
 
     public void passwordRecovery(View v){
@@ -66,14 +66,14 @@ Intent intent = new Intent(this,RegisterUserActivity.class);
                         if(task.isSuccessful()) {
                             Log.d(TAG, "sgnInWithEmail:Success");
                             FirebaseUser user = broAuth.getCurrentUser();
-                            updateUI(user);
+
                         } else {
                             Log.w(TAG, "signInWithEmail:Failure", task.getException());
-                            Toast.makeText(EmailPasswordActivity.this, "Authentication failed."),
+                            Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                            UpdateUI(null);
-                        }
 
-        })
-    }
-}
+                        }}});}}
+
+
+
+
