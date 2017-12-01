@@ -16,33 +16,39 @@
         android:textColor="@color/colorPrimaryDark"/>
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Username"
+        android:hint="Username"
         android:id="@+id/newUsername"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:textSize="30dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:hint="Password"
         android:textSize="30dp"
         android:id="@+id/newPassword"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="E-mail"
+        android:hint="E-mail"
         android:textSize="30dp"
         android:id="@+id/newEmail"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         />
 
     <Button
