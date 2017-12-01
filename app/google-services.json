@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "178519433008-e8tn5dhlbkuik6vn4eo4l0omid1dd73j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "memelord.com.bro_finder",
+            "certificate_hash": "228f94000a0854ae30cf45964a8cdc7e23138d97"
+          }
+        },
+        {
           "client_id": "178519433008-m4jfs1nd9femjfn2mhh5qur6d873vtug.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
