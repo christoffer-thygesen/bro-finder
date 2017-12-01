@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Bro-Finder.iml" filepath="$PROJECT_DIR$/Bro-Finder.iml" />
       <module fileurl="file://C:\Users\Alien\Desktop\App\SEP4 Project\Brofinder\Bro-Finder.iml" filepath="C:\Users\Alien\Desktop\App\SEP4 Project\Brofinder\Bro-Finder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Brofinder.iml" filepath="$PROJECT_DIR$/Brofinder.iml" />
       <module fileurl="file://C:\Users\stoff\Documents\Gits\Bro-Finder\Brofinder.iml" filepath="C:\Users\stoff\Documents\Gits\Bro-Finder\Brofinder.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Alien\Desktop\App\SEP4 Project\Brofinder\app\app.iml" filepath="C:\Users\Alien\Desktop\App\SEP4 Project\Brofinder\app\app.iml" />
     </modules>
   </component>
 </project>
