@@ -17,7 +17,9 @@ import com.google.firebase.database.FirebaseDatabase;
 public class DatabaseManager implements ChildEventListener {
 
     private static DatabaseManager instance;
-    private DatabaseReference database;
+    private DatabaseReference databaseUsers;
+    private DatabaseReference databaseEvents;
+    private DatabaseReference databaseComments;
     private String application_id;
     private Context context;
 
@@ -37,8 +39,86 @@ public class DatabaseManager implements ChildEventListener {
         else {
             //already has app ID
         }
-        database = firebaseDatabase.getReference(application_id);
-        database.addChildEventListener(this);
+        databaseUsers = firebaseDatabase.getReference(application_id + "/Users");
+        databaseEvents = firebaseDatabase.getReference(application_id + "/Events");
+        databaseComments = firebaseDatabase.getReference(application_id + "/Comments");
+        databaseUsers.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        databaseEvents.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        databaseComments.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public static DatabaseManager getInstance(Context context) {
