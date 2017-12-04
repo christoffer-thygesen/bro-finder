@@ -19,28 +19,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-<<<<<<< HEAD
 
-        databaseManager = DatabaseManager.getInstance(this);
-
-        //intented();
-=======
         //Toolbar broToolbar = (Toolbar)findViewById(R.id.toptoolbar);
        //setSupportActionBar(broToolbar);
     }
->>>>>>> ff5478a27d3722c51608979e31424ae998cd7bd2
-
-public void tologin(View v){
+    
+    public void tologin(View v){
         goToLoginPage();
-}
-
-<<<<<<< HEAD
     }
 
-    public void intented(){
-=======
-    public void goToLoginPage(){
->>>>>>> ff5478a27d3722c51608979e31424ae998cd7bd2
+
+    public void goToLoginPage() {
         Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);
     }
