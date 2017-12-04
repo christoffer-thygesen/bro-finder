@@ -8,6 +8,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
@@ -49,12 +50,18 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void userRegister(View v){
-Intent intent = new Intent(this,RegisterUserActivity.class);
+        Intent intent = new Intent(this,RegisterUserActivity.class);
         startActivity(intent);
     }
 
     public void loginButtonClick(View v){
+        EditText userEmail = findViewById(R.id.userEmail); //
+        EditText userPassword = findViewById(R.id.userPassword);
 
+        String email = userEmail.getText().toString();
+        String password = userPassword.getText().toString();
+
+        signIn(email,password);
 
             }
 
@@ -66,13 +73,24 @@ Intent intent = new Intent(this,RegisterUserActivity.class);
                         if(task.isSuccessful()) {
                             Log.d(TAG, "sgnInWithEmail:Success");
                             FirebaseUser user = broAuth.getCurrentUser();
+                            toMainActivity();
 
                         } else {
                             Log.w(TAG, "signInWithEmail:Failure", task.getException());
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
 
-                        }}});}}
+                        }}});}
+
+
+
+        public void toMainActivity(){
+            Intent backtoMain = new Intent(this,MainActivity.class);
+            finish();
+            startActivity(backtoMain);
+    }
+
+    }
 
 
 
