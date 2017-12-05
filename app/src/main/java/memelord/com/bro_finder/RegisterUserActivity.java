@@ -2,8 +2,10 @@ package memelord.com.bro_finder;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -32,6 +34,12 @@ public class RegisterUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
         broAuth = FirebaseAuth.getInstance();
+
+        android.support.v7.widget.Toolbar brobar = (Toolbar)findViewById(R.id.toptoolbar);
+        setSupportActionBar(brobar);
+
+        ActionBar broActionBar = getSupportActionBar();
+        broActionBar.setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -65,6 +73,7 @@ public class RegisterUserActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = broAuth.getCurrentUser();
+                            user.sendEmailVerification(); //send verification for user
                             finish();
                            backtoLogin(); //intent to go to mainActivity
 

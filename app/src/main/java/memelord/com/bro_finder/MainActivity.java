@@ -2,10 +2,13 @@ package memelord.com.bro_finder;
 
 import android.content.Intent;
 import android.provider.ContactsContract;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toolbar;
+import android.support.v7.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -13,6 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
     private DatabaseManager databaseManager;
+    private android.support.v7.widget.Toolbar brobar;
 
 
     @Override
@@ -20,10 +24,35 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Toolbar broToolbar = (Toolbar)findViewById(R.id.toptoolbar);
-       //setSupportActionBar(broToolbar);
+     android.support.v7.widget.Toolbar brobar = (Toolbar)findViewById(R.id.toptoolbar);
+        setSupportActionBar(brobar);
+
+        ActionBar broActionBar = getSupportActionBar();
+        broActionBar.setDisplayHomeAsUpEnabled(true);
     }
-    
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.main_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch(item.getItemId()){
+            case R.id.action_settings:
+                Intent intent = new Intent(this,MyProfileActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    /*
+    public void settingsClick(View v){
+        finish();
+    }*/
+
     public void tologin(View v){
         goToLoginPage();
     }

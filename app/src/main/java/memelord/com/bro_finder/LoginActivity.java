@@ -2,8 +2,10 @@ package memelord.com.bro_finder;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -28,6 +30,12 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         broAuth = FirebaseAuth.getInstance();
         Button loginButton = (Button)findViewById(R.id.loginButton);
+
+        android.support.v7.widget.Toolbar brobar = (Toolbar)findViewById(R.id.toptoolbar);
+        setSupportActionBar(brobar);
+
+        ActionBar broActionBar = getSupportActionBar();
+        broActionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -40,19 +48,19 @@ public class LoginActivity extends AppCompatActivity {
 
     public void passwordRecovery(View v){
 
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
+    Intent intent = new Intent(this,PopupWindow.class);
+    startActivity(intent);
 
-        int width =(int)(dm.widthPixels*.8); //80% Screen size
-        int height =(int)(dm.heightPixels*0.5); //50% Screen size
 
-        new PopupWindow(width,height);
+
     }
 
     public void userRegister(View v){
         Intent intent = new Intent(this,RegisterUserActivity.class);
         startActivity(intent);
     }
+
+
 
     public void loginButtonClick(View v){
         EditText userEmail = findViewById(R.id.userEmail); //
@@ -67,9 +75,9 @@ public class LoginActivity extends AppCompatActivity {
 
     public void signIn(String email,String password){
         broAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
                             Log.d(TAG, "sgnInWithEmail:Success");
                             FirebaseUser user = broAuth.getCurrentUser();
@@ -77,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         } else {
                             Log.w(TAG, "signInWithEmail:Failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Toast.makeText( LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
 
                         }}});}
@@ -91,6 +99,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     }
+
+    //https://firebase.google.com/docs/auth/web/manage-users
 
 
 

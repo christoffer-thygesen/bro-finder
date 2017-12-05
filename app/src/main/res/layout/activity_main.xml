@@ -4,9 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="memelord.com.bro_finder.MainActivity">
-    
+    tools:context="memelord.com.bro_finder.MainActivity"
+    android:orientation="vertical">
 
+    <android.support.v7.widget.Toolbar
+    android:id="@+id/toptoolbar"
+    android:layout_width="match_parent"
+    app:title="Bro Toolbar"
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/colorPrimary"
+    android:elevation="4dp"
+    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
 
 
@@ -25,7 +34,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button to login page"
-        android:onClick="tologin" />
+        android:onClick="tologin"
+        android:layout_marginTop="300dp"/>
 
 
 </LinearLayout>
