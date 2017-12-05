@@ -36,6 +36,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
         broAuth = FirebaseAuth.getInstance();
+        databaseManager = DatabaseManager.getInstance(this);
 
         android.support.v7.widget.Toolbar brobar = (Toolbar)findViewById(R.id.toptoolbar);
         setSupportActionBar(brobar);
@@ -55,8 +56,8 @@ public class RegisterUserActivity extends AppCompatActivity {
         String password = newPassword.getText().toString();
         userName = newUsername.getText().toString();
 
-        Toast.makeText(RegisterUserActivity.this, "You clicked the button!",
-                Toast.LENGTH_SHORT).show();
+//        Toast.makeText(RegisterUserActivity.this, "You clicked the button!",
+//                Toast.LENGTH_SHORT).show();
 
 
         createAccount(email,password);
@@ -81,8 +82,11 @@ public class RegisterUserActivity extends AppCompatActivity {
                             FirebaseUser user = broAuth.getCurrentUser();
                             user.sendEmailVerification(); //send verification for user
 
-                            User newUser = new User(user.getUid(), userName);
-                            databaseManager.addUser(newUser);
+                            Log.d("USERID", user.getUid());
+                            Log.d("USERNAME", userName);
+
+                            databaseManager.addUser(user.getUid(), userName);
+                            Toast.makeText(RegisterUserActivity.this,"I saved your data", Toast.LENGTH_LONG).show();
                             finish();
 
                         } else {
@@ -92,8 +96,6 @@ public class RegisterUserActivity extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
 
                         }
-
-                        // ...
                     }
                 });
 
