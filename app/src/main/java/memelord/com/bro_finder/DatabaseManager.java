@@ -1,8 +1,10 @@
 package memelord.com.bro_finder;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.widget.ListView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -22,6 +24,8 @@ public class DatabaseManager implements ChildEventListener {
     private DatabaseReference databaseComments;
     private String application_id;
     private Context context;
+
+    private EventUpdater eventUpdater;
 
     private DatabaseManager(Context context) {
         this.context = context;
@@ -45,6 +49,7 @@ public class DatabaseManager implements ChildEventListener {
         databaseUsers.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                User user = dataSnapshot.getValue(User.class);
             }
 
             @Override
@@ -70,7 +75,7 @@ public class DatabaseManager implements ChildEventListener {
         databaseEvents.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
+                Event event = dataSnapshot.getValue(Event.class);
             }
 
             @Override
@@ -121,6 +126,7 @@ public class DatabaseManager implements ChildEventListener {
         });
     }
 
+    //one of those singleton bois
     public static DatabaseManager getInstance(Context context) {
         if(instance == null) {
             instance = new DatabaseManager(context);
@@ -128,6 +134,19 @@ public class DatabaseManager implements ChildEventListener {
         return instance;
     }
 
+    //init this in main
+    public void initialize(Activity activity, ListView eventListView) {
+        eventUpdater = new EventUpdater(activity, eventListView);
+    }
+
+    //called when closing app (onDestroy)
+    public void destroy() {
+        databaseComments.removeEventListener(this);
+        databaseEvents.removeEventListener(this);
+        databaseUsers.removeEventListener(this);
+    }
+
+    //region UselessListenersButHasToBeThere
     @Override
     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
@@ -152,4 +171,5 @@ public class DatabaseManager implements ChildEventListener {
     public void onCancelled(DatabaseError databaseError) {
 
     }
+    //endregionBut
 }
