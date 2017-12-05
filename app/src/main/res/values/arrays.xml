@@ -4,7 +4,6 @@
         <item>entry1</item>
         <item>entry2</item>
     </string-array>
-
     <string-array name="EntryValues">
         <item>value1</item>
         <item>value2</item>
@@ -19,8 +18,4 @@
         empty1
 
     </string-array>
-
-    <string name="pref_syncConnectionTypes">
-        empty1
-    </string>
 </resources>
