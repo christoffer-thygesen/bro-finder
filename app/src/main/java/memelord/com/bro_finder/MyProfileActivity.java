@@ -1,5 +1,6 @@
 package memelord.com.bro_finder;
 
+import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
@@ -127,20 +128,30 @@ public class MyProfileActivity extends AppCompatActivity {
 
 
     public void deleteAccount(View v) {
+        databaseManager.deleteUser(broUser.getUid());
         broUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-
                     Toast.makeText(MyProfileActivity.this, "User is deleted",
                             Toast.LENGTH_SHORT).show();
+                    userDeleted();
                 } else {
+                    Toast.makeText(MyProfileActivity.this, "failed to delete user, try again !",
+                            Toast.LENGTH_SHORT).show();
 
                 }
             }
         });
     }
 
+
+    public void userDeleted()
+    {
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+    }
 }
 
 
