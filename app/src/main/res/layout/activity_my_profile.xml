@@ -64,7 +64,8 @@
         android:layout_height="wrap_content"
         android:hint="Old Password"
         android:inputType="textPassword"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:id="@+id/oldPassword"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -75,7 +76,8 @@
         android:layout_height="wrap_content"
         android:hint="New Password"
         android:inputType="textPassword"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:id="@+id/newPasswordManage"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,7 +88,8 @@
         android:layout_height="wrap_content"
         android:hint="Confirm Password"
         android:inputType="textPassword"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:id="@+id/newPasswordManageConfirm"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

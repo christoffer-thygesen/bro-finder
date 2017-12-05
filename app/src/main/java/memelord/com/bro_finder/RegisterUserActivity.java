@@ -84,7 +84,6 @@ public class RegisterUserActivity extends AppCompatActivity {
                             User newUser = new User(user.getUid(), userName);
                             databaseManager.addUser(newUser);
                             finish();
-                           backtoLogin(); //intent to go to mainActivity
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -100,10 +99,6 @@ public class RegisterUserActivity extends AppCompatActivity {
 
     }
 
-    public void backtoLogin(){
-        Intent backtoLogin = new Intent(this, LoginActivity.class);
-        startActivity(backtoLogin);
-    }
 
     private boolean validateForm() {
         boolean valid = true;
