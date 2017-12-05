@@ -43,13 +43,13 @@ public class DatabaseManager implements ChildEventListener {
         else {
             //already has app ID
         }
-        databaseUsers = firebaseDatabase.getReference(application_id + "/Users");
+        databaseUsers = firebaseDatabase.getReference("Users");
         databaseEvents = firebaseDatabase.getReference(application_id + "/Events");
         databaseComments = firebaseDatabase.getReference(application_id + "/Comments");
         databaseUsers.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                User user = dataSnapshot.getValue(User.class);
+                //User user = dataSnapshot.getValue(User.class);
             }
 
             @Override
@@ -152,8 +152,13 @@ public class DatabaseManager implements ChildEventListener {
         return instance;
     }
 
-    public void addUser(User newUser) {
-        databaseUsers.child(newUser.getId()).setValue(newUser);
+    public void addUser(String userID, String username) {
+        User user = new User(userID, username);
+        databaseUsers.child(userID).setValue(user);
+    }
+
+    public void deleteUser(String userID) {
+        databaseUsers.child(userID).removeValue();
     }
 
     //init this in main

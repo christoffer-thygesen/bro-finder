@@ -20,7 +20,6 @@ public class UserUpdater {
 
     public void addUser(User user) {
         if(user != null) {
-
-        }
+    }
     }
 }
