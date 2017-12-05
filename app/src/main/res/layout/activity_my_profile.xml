@@ -20,6 +20,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text=""
+        android:id="@+id/accountEmail"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Change Email:"
         android:textSize="20dp"
         android:layout_gravity="center"/>
@@ -29,7 +36,8 @@
         android:layout_height="wrap_content"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:id="@+id/inputEmail"/>
 
     <Button
         android:layout_width="wrap_content"

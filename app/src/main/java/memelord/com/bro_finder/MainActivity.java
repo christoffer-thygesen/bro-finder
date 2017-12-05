@@ -59,10 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /*
-    public void settingsClick(View v){
-        finish();
-    }*/
 
     public void tologin(View v){
         goToLoginPage();

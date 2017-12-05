@@ -46,9 +46,12 @@ public class RegisterUserActivity extends AppCompatActivity {
     public void registerAccount(View V){
         EditText newPassword = findViewById(R.id.newPassword); //
         EditText newEmail = findViewById(R.id.newEmail);
+        EditText newUsername = findViewById(R.id.newUsername);
+
 
         String email = newEmail.getText().toString();
         String password = newPassword.getText().toString();
+        String userName = newUsername.getText().toString();
 
         Toast.makeText(RegisterUserActivity.this, "You clicked the button!",
                 Toast.LENGTH_SHORT).show();
