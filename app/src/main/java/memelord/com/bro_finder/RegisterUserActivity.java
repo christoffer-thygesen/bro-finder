@@ -21,7 +21,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterUserActivity extends AppCompatActivity {
 
+    String userName;
     private static final String TAG = "EmailPassword";
+    private DatabaseManager databaseManager;
     private FirebaseAuth broAuth;
 
    // private TextView mStatusTextView;
@@ -34,6 +36,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
         broAuth = FirebaseAuth.getInstance();
+        databaseManager = DatabaseManager.getInstance(this);
 
         android.support.v7.widget.Toolbar brobar = (Toolbar)findViewById(R.id.toptoolbar);
         setSupportActionBar(brobar);
@@ -46,12 +49,16 @@ public class RegisterUserActivity extends AppCompatActivity {
     public void registerAccount(View V){
         EditText newPassword = findViewById(R.id.newPassword); //
         EditText newEmail = findViewById(R.id.newEmail);
+        EditText newUsername = findViewById(R.id.newUsername);
+
 
         String email = newEmail.getText().toString();
         String password = newPassword.getText().toString();
+        userName = newUsername.getText().toString();
 
-        Toast.makeText(RegisterUserActivity.this, "You clicked the button!",
-                Toast.LENGTH_SHORT).show();
+//        Toast.makeText(RegisterUserActivity.this, "You clicked the button!",
+//                Toast.LENGTH_SHORT).show();
+
 
         createAccount(email,password);
     }
@@ -74,8 +81,13 @@ public class RegisterUserActivity extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = broAuth.getCurrentUser();
                             user.sendEmailVerification(); //send verification for user
+
+                            Log.d("USERID", user.getUid());
+                            Log.d("USERNAME", userName);
+
+                            databaseManager.addUser(user.getUid(), userName);
+                            Toast.makeText(RegisterUserActivity.this,"I saved your data", Toast.LENGTH_LONG).show();
                             finish();
-                           backtoLogin(); //intent to go to mainActivity
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -84,17 +96,11 @@ public class RegisterUserActivity extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
 
                         }
-
-                        // ...
                     }
                 });
 
     }
 
-    public void backtoLogin(){
-        Intent backtoLogin = new Intent(this, LoginActivity.class);
-        startActivity(backtoLogin);
-    }
 
     private boolean validateForm() {
         boolean valid = true;
