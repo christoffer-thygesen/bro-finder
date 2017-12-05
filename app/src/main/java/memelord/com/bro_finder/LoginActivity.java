@@ -36,6 +36,14 @@ public class LoginActivity extends AppCompatActivity {
 
         ActionBar broActionBar = getSupportActionBar();
         broActionBar.setDisplayHomeAsUpEnabled(true);
+
+        /*
+        if(broAuth.getCurrentUser() != null){
+            toMainActivity();
+        }
+        else{
+
+        } UNCOMMENT TO CHECK FOR LOGIN ON APPLICATION START */
     }
 
     @Override

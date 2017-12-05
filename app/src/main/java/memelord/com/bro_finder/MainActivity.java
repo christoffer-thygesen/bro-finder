@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //init databaseManager
-        databaseManager.getInstance(this);
-        databaseManager.initialize(this, eventListView);
+      /*  databaseManager.getInstance(this);
+        databaseManager.initialize(this, eventListView); */
 
      android.support.v7.widget.Toolbar brobar = (Toolbar)findViewById(R.id.toptoolbar);
         setSupportActionBar(brobar);
@@ -59,10 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /*
-    public void settingsClick(View v){
-        finish();
-    }*/
 
     public void tologin(View v){
         goToLoginPage();
