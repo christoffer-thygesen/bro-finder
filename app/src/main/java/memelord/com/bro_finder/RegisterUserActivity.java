@@ -21,7 +21,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterUserActivity extends AppCompatActivity {
 
+    String userName;
     private static final String TAG = "EmailPassword";
+    private DatabaseManager databaseManager;
     private FirebaseAuth broAuth;
 
    // private TextView mStatusTextView;
@@ -51,10 +53,11 @@ public class RegisterUserActivity extends AppCompatActivity {
 
         String email = newEmail.getText().toString();
         String password = newPassword.getText().toString();
-        String userName = newUsername.getText().toString();
+        userName = newUsername.getText().toString();
 
         Toast.makeText(RegisterUserActivity.this, "You clicked the button!",
                 Toast.LENGTH_SHORT).show();
+
 
         createAccount(email,password);
     }
@@ -77,6 +80,9 @@ public class RegisterUserActivity extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = broAuth.getCurrentUser();
                             user.sendEmailVerification(); //send verification for user
+
+                            User newUser = new User(user.getUid(), userName);
+                            databaseManager.addUser(newUser);
                             finish();
                            backtoLogin(); //intent to go to mainActivity
 

@@ -152,6 +152,10 @@ public class DatabaseManager implements ChildEventListener {
         return instance;
     }
 
+    public void addUser(User newUser) {
+        databaseUsers.child(newUser.getId()).setValue(newUser);
+    }
+
     //init this in main
     public void initialize(Activity activity, ListView eventListView) {
         eventUpdater = new EventUpdater(activity, eventListView);
