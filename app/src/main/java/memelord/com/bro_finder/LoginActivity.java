@@ -23,13 +23,14 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "EmailPassword";
     private FirebaseAuth broAuth;
+    private Button loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         broAuth = FirebaseAuth.getInstance();
-        Button loginButton = (Button)findViewById(R.id.loginButton);
+        loginButton = (Button)findViewById(R.id.loginButton);
 
         android.support.v7.widget.Toolbar brobar = (Toolbar)findViewById(R.id.toptoolbar);
         setSupportActionBar(brobar);
