@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
 import android.support.v7.widget.Toolbar;
+import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -16,13 +18,21 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
     private DatabaseManager databaseManager;
+
     private android.support.v7.widget.Toolbar brobar;
+
+    private ListView eventListView;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //init databaseManager
+        databaseManager.getInstance(this);
+        databaseManager.initialize(this, eventListView);
 
      android.support.v7.widget.Toolbar brobar = (Toolbar)findViewById(R.id.toptoolbar);
         setSupportActionBar(brobar);
@@ -46,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+
     }
 
     /*

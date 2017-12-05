@@ -10,6 +10,7 @@ import java.util.ArrayList;
  */
 
 public class EventUpdater {
+
     private Activity activity;
     private ListView eventListView;
     private ArrayList<Event> eventArray;
@@ -23,7 +24,34 @@ public class EventUpdater {
     public void addEvent(Event event) {
         if(event != null) {
             eventArray.add(event);
-            //need a custom list adapter
+            //need a custom list adapter and notify changes
+        }
+    }
+
+    public void updateEvent(Event event) {
+        if(event != null) {
+            for (Event item : eventArray) {
+                if(item.getId() != null) {
+                    if(item.getId().equals(event.getId())) {
+                        //found correct event
+                        //do the stuff that changes the data here
+                    }
+                }
+            }
+        }
+    }
+
+    public void removeEvent(Event event) {
+        if(event != null) {
+            for (Event item : eventArray) {
+                if(item.getId() != null) {
+                    if(item.getId().equals(event.getId())) {
+                        //questionable method
+                        eventArray.remove(event);
+                        DatabaseManager.getInstance(activity).deleteEvent(event);
+                    }
+                }
+            }
         }
     }
 }

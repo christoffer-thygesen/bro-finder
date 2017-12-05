@@ -76,16 +76,34 @@ public class DatabaseManager implements ChildEventListener {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Event event = dataSnapshot.getValue(Event.class);
+
+                if(eventUpdater != null) {
+                    eventUpdater.addEvent(event);
+                } else {
+                    //eventUpdater is not set yet
+                }
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                Event event = dataSnapshot.getValue(Event.class);
 
+                if(eventUpdater != null) {
+                    eventUpdater.updateEvent(event);
+                } else {
+                    //eventupdater is not set yet
+                }
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
+                Event event = dataSnapshot.getValue(Event.class);
 
+                if(eventUpdater != null) {
+                    eventUpdater.removeEvent(event);
+                } else {
+                    //eventupdater is not set yet
+                }
             }
 
             @Override
@@ -139,11 +157,23 @@ public class DatabaseManager implements ChildEventListener {
         eventUpdater = new EventUpdater(activity, eventListView);
     }
 
-    //called when closing app (onDestroy)
     public void destroy() {
         databaseComments.removeEventListener(this);
         databaseEvents.removeEventListener(this);
         databaseUsers.removeEventListener(this);
+    }
+
+    public void deleteEvent(Event event) {
+        databaseEvents.child(event.getId()).removeValue();
+    }
+
+    public String createEventID()
+    {
+        return databaseEvents.push().getKey();
+    }
+    public String createCommentID()
+    {
+        return databaseComments.push().getKey();
     }
 
     //region UselessListenersButHasToBeThere
