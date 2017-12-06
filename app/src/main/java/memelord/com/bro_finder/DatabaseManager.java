@@ -144,7 +144,7 @@ public class DatabaseManager implements ChildEventListener {
         });
     }
 
-    //one of those singleton bois
+    //one of those singleton boi
     public static DatabaseManager getInstance(Context context) {
         if(instance == null) {
             instance = new DatabaseManager(context);

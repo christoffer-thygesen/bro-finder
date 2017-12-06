@@ -89,7 +89,6 @@ public class RegisterUserActivity extends AppCompatActivity {
                             databaseManager.addUser(user.getUid(), userName);
                             Toast.makeText(RegisterUserActivity.this,"I saved your data", Toast.LENGTH_LONG).show();
                             finish();
-                           //backtoLogin(); //intent to go to mainActivity
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -103,10 +102,6 @@ public class RegisterUserActivity extends AppCompatActivity {
 
     }
 
-    public void backtoLogin(){
-        Intent backtoLogin = new Intent(this, LoginActivity.class);
-        startActivity(backtoLogin);
-    }
 
     private boolean validateForm() {
         boolean valid = true;

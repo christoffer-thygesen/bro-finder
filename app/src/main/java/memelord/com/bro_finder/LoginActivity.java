@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void passwordRecovery(View v){
 
-    Intent intent = new Intent(this,PopupWindow.class);
+    Intent intent = new Intent(this,ForgotPasswordActivity.class);
     startActivity(intent);
 
 
