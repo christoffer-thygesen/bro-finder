@@ -3,8 +3,11 @@
     package="memelord.com.bro_finder">
 
     <uses-permission android:name="android.permission.INTERNET" />
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+=======
+>>>>>>> a473379c04c1cebfcffb362227f9300e95ed6118
 
     <application
         android:allowBackup="true"
@@ -39,7 +42,11 @@
             android:name=".ForgotPasswordActivity"
             android:parentActivityName=".LoginActivity" /> <!-- -> ForgotPassword Activity Child of Login < -->
 
+<<<<<<< HEAD
         <activity android:name=".CreateEventActivity"></activity>
+=======
+        <activity android:name=".MyEventsActivity"></activity>
+>>>>>>> a473379c04c1cebfcffb362227f9300e95ed6118
     </application>
 
 </manifest>
