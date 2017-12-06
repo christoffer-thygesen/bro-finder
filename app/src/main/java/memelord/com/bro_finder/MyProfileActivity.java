@@ -22,9 +22,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MyProfileActivity extends AppCompatActivity {
-    FirebaseUser broUser = FirebaseAuth.getInstance().getCurrentUser();
-    FirebaseAuth broAuth = FirebaseAuth.getInstance();
-    String emailAuth = broUser.getEmail();
+   private FirebaseUser broUser = FirebaseAuth.getInstance().getCurrentUser();
+   private FirebaseAuth broAuth = FirebaseAuth.getInstance();
+   private String emailAuth = broUser.getEmail();
 
     private static final String TAG = "ManageUser";
     private DatabaseManager databaseManager;
