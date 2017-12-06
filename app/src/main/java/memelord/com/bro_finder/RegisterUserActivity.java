@@ -25,6 +25,7 @@ public class RegisterUserActivity extends AppCompatActivity {
     private static final String TAG = "EmailPassword";
     private DatabaseManager databaseManager;
     private FirebaseAuth broAuth;
+    private Toolbar brobar;
 
    // private TextView mStatusTextView;
    // private TextView mDetailTextView;
@@ -38,7 +39,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         broAuth = FirebaseAuth.getInstance();
         databaseManager = DatabaseManager.getInstance(this);
 
-        android.support.v7.widget.Toolbar brobar = (Toolbar)findViewById(R.id.toptoolbar);
+        brobar = (Toolbar)findViewById(R.id.toptoolbar);
         setSupportActionBar(brobar);
 
         ActionBar broActionBar = getSupportActionBar();
