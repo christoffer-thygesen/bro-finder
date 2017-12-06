@@ -12,20 +12,12 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-    <item
-        android:id="@+id/action_my_events"
-        android:icon="@drawable/myeventsicon"
-        android:title="My Events"
-        app:showAsAction="always"
-        />
-    
+
     <item
         android:id="@+id/action_settings"
         android:icon="@drawable/settingsicon"
         android:title="Settings"
         app:showAsAction="always" />
-
-
 
 
 </menu>

@@ -11,7 +11,6 @@ import android.view.View;
 
 import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private android.support.v7.widget.Toolbar brobar;
 
     private ListView eventListView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(this,MyProfileActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.action_my_events:
-                Intent intent2 = new Intent(this,MyEventsActivity.class);
-                startActivity(intent2);
-
             default:
                 return super.onOptionsItemSelected(item);
         }

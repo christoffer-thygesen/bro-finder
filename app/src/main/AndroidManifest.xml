@@ -9,6 +9,8 @@
 =======
 >>>>>>> a473379c04c1cebfcffb362227f9300e95ed6118
 
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,26 +29,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:parentActivityName=".MainActivity" /> <!-- -> Login Activity Child of Main < -->
+        <activity android:name=".LoginActivity"
+            android:parentActivityName=".MainActivity"/> <!---> Login Activity Child of Main <-->
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity" /> <!-- -> Setting Activity Child of Main < -->
-        <activity
-            android:name=".RegisterUserActivity"
-            android:parentActivityName=".LoginActivity" /> <!-- -> Register Activity Child of Login < -->
+            android:parentActivityName=".MainActivity"/> <!---> Setting Activity Child of Main <-->
+        <activity android:name=".RegisterUserActivity"
+            android:parentActivityName=".LoginActivity"/> <!---> Register Activity Child of Login <-->
         <activity android:name=".MyProfileActivity" />
-        <activity
-            android:name=".ForgotPasswordActivity"
-            android:parentActivityName=".LoginActivity" /> <!-- -> ForgotPassword Activity Child of Login < -->
+        <activity android:name=".ForgotPasswordActivity"
+            android:parentActivityName=".LoginActivity"></activity> <!---> ForgotPassword Activity Child of Login <-->
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD
         <activity android:name=".CreateEventActivity"></activity>
 =======
         <activity android:name=".MyEventsActivity"></activity>
 >>>>>>> a473379c04c1cebfcffb362227f9300e95ed6118
+=======
+>>>>>>> parent of a473379... MyEventList
+=======
+>>>>>>> parent of a473379... MyEventList
     </application>
 
-</manifest>
+    </manifest>
