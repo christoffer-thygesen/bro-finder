@@ -69,4 +69,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);
     }
+
+    public void toCreateEvent(View view) {
+        Intent intent = new Intent(this,CreateEventActivity.class);
+        startActivity(intent);
+    }
 }

@@ -3,7 +3,8 @@
     package="memelord.com.bro_finder">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDJ0krXk4JDZow7mNH-IgexpYJOswicu6E" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,18 +24,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"
-            android:parentActivityName=".MainActivity"/> <!---> Login Activity Child of Main <-->
+        <activity
+            android:name=".LoginActivity"
+            android:parentActivityName=".MainActivity" /> <!-- -> Login Activity Child of Main < -->
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity"/> <!---> Setting Activity Child of Main <-->
-        <activity android:name=".RegisterUserActivity"
-            android:parentActivityName=".LoginActivity"/> <!---> Register Activity Child of Login <-->
+            android:parentActivityName=".MainActivity" /> <!-- -> Setting Activity Child of Main < -->
+        <activity
+            android:name=".RegisterUserActivity"
+            android:parentActivityName=".LoginActivity" /> <!-- -> Register Activity Child of Login < -->
         <activity android:name=".MyProfileActivity" />
-        <activity android:name=".ForgotPasswordActivity"
-            android:parentActivityName=".LoginActivity"></activity> <!---> ForgotPassword Activity Child of Login <-->
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:parentActivityName=".LoginActivity" /> <!-- -> ForgotPassword Activity Child of Login < -->
 
+        <activity android:name=".CreateEventActivity"></activity>
     </application>
 
-    </manifest>
+</manifest>
