@@ -24,7 +24,7 @@ public class Event implements Serializable {
     private double location_Lat;
     private double location_Lng;
 
-    public Event() {}
+    //public Event() {}
 
     public Event(String id, String desc, String title, String commentsID, String creator, int day,
                  int month, int year, long timestamp, double location_Lat, double location_Lng) {
