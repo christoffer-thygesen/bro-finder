@@ -36,7 +36,7 @@
         <activity android:name=".MyProfileActivity" />
         <activity android:name=".ForgotPasswordActivity"
             android:parentActivityName=".LoginActivity"></activity> <!---> ForgotPassword Activity Child of Login <-->
-        
+
 
     </application>
 
