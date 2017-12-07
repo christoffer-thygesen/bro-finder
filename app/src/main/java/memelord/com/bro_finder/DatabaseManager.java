@@ -4,13 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by stoff on 01-12-2017.
@@ -44,12 +48,12 @@ public class DatabaseManager implements ChildEventListener {
             //already has app ID
         }
         databaseUsers = firebaseDatabase.getReference("Users");
-        databaseEvents = firebaseDatabase.getReference(application_id + "/Events");
-        databaseComments = firebaseDatabase.getReference(application_id + "/Comments");
+        databaseEvents = firebaseDatabase.getReference("Events");
+        databaseComments = firebaseDatabase.getReference("Comments");
         databaseUsers.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                //User user = dataSnapshot.getValue(User.class);
+                User user = dataSnapshot.getValue(User.class);
             }
 
             @Override
@@ -157,6 +161,27 @@ public class DatabaseManager implements ChildEventListener {
         databaseUsers.child(userID).setValue(user);
     }
 
+    public void getUsername(String id) {
+        final User[] user = new User[1];
+        databaseUsers.child(id);
+        Query q = databaseUsers.orderByKey()
+                .equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+        q.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                user[0] = dataSnapshot.getValue(User.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        Log.d("Tag1", user[0].getId());
+        Log.d("Tag2", user[0].getUsername());
+    }
+
     public void deleteUser(String userID) {
         databaseUsers.child(userID).removeValue();
     }
@@ -164,6 +189,10 @@ public class DatabaseManager implements ChildEventListener {
     //init this in main
     public void initialize(Activity activity, ListView eventListView) {
         eventUpdater = new EventUpdater(activity, eventListView);
+    }
+
+    public void addEvent(Event event) {
+
     }
 
     public void destroy() {
