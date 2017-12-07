@@ -21,6 +21,8 @@ import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import com.google.android.gms.location.places.ui.PlacePicker;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;

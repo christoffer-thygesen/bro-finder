@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,35 +18,71 @@ public class MyEventsActivity extends AppCompatActivity {
         //listView.setAdapter(myEventAdapter);
 
     */
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public  void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_events);
-        final ArrayList<Event> myEventList = new ArrayList<>();
-        final MyEventsAdapter myAdapter = new MyEventsAdapter(this,myEventList);
-        ListView listView = (ListView)findViewById(R.id.MyEventList);
-        listView.setAdapter(myAdapter);
-
-        ArrayList<Event> arrayhere = new ArrayList<>();
+        final ArrayList<Event> myEventsList = new ArrayList<>();
+        final MyEventsAdapter myAdapter = new MyEventsAdapter(this,myEventsList);
+        final MyEventsAdapter myParticipatingEventsAdapter = new MyEventsAdapter(this,myEventsList);
 
         Event a = new Event("123", "Kicking a ball", "Football", "abc", "John", 5, 2,  2017, 06022017, 333, 444);
         Event b = new Event("1234", "Kicking a bottle", "Beer", "ab", "Jo", 6, 2,  2017, 06022017, 333, 444);
         Event c = new Event("1235", "Kicking ", "Walk", "abcd", "Johnathan", 5, 3,  2017, 06022017, 333, 444);
-        arrayhere.add(a);
-        arrayhere.add(b);
-        arrayhere.add(c);
+        myEventsList.add(0,a);
+        myEventsList.add(1,b);
+        myEventsList.add(2,c);
+
+
+        ListView myEvents = findViewById(R.id.MyEventList);
+        myEvents.setAdapter(myAdapter);
+        ListView participatingEvents = findViewById(R.id.myParticipatingEvents);
+        participatingEvents.setAdapter(myParticipatingEventsAdapter);
+
+
+
+        /*
+       for(Event myEvents : myEventList) {
+   if(Event.getId(creatorID).equals(someId) {
+   ListView myEvents = (ListView)findViewById(R.id.myEventList);
+       //found it!
+   }
+}
+
+for(Event myParticipatingEvents : myEventList)(
+if(Event.getId( *id = participating*?){
+ListView participatingEvents = (ListView)findViewById(R.id.myParticipatingEvents);
+        * */
+
+
+
 
 
     }
 
     public void checkBoxAll(View v){
-
-
-    }
+        /*
+int events = MyEventsActivity().getCount();
+for(int i = 0; i<events;i++){
+myEvents.setItemChecked(i,true);
+}*/}
 
 
     public void refreshButton(View v){
+
         recreate();
+        Toast.makeText( MyEventsActivity.this, "Refreshed page",
+                Toast.LENGTH_SHORT).show();
+    }
+
+    public void deleteEvents(View v){
+        /*for(int i = 0; i<myEventsList.getCount();i++){
+            if(myEventsList.isChecked){
+                //send delete information to database
+            }
+        }*/
     }
 
 

@@ -26,24 +26,26 @@ public class MyEventsAdapter extends ArrayAdapter<Event> {
         LayoutInflater myEventInflater = LayoutInflater.from(getContext());
         View myEventCustomView = myEventInflater.inflate(R.layout.myeventlist,parent,false);
 
-        final Event member = getItem(0); //(position)
+        final Event currentEvent = getItem(position);
 
-            final TextView textTitle = (TextView)myEventCustomView.findViewById(R.id.myEventsTitle);
-            textTitle.setText("Bold i haven"); //Event.getTitle());
+        final TextView textTitle = (TextView)myEventCustomView.findViewById(R.id.myEventsTitle);
+        textTitle.setText("this is title");
 
-            final TextView textDescription = (TextView)myEventCustomView.findViewById(R.id.myEventsDescription);
-            textDescription.setText("det bliver fedt!");  //Event.getDesc());
+        final TextView textDescription = (TextView)myEventCustomView.findViewById(R.id.myEventsDescription);
+        textDescription.setText("This is description");//Event.getDesc());
 
-            final TextView textDate = (TextView)myEventCustomView.findViewById(R.id.myEventsDate);
-            String date = "29/01/2018"; //Event.getDay() + Event.getMonth() + Event.getYear();
-            textDate.setText(date);
+        final TextView textDate = (TextView)myEventCustomView.findViewById(R.id.myEventsDate);
+        String date = "29/01\n2018"; //Event.getDay() + Event.getMonth() + Event.getYear();
+        textDate.setText(date);
 
-            final TextClock clockText = (TextClock)myEventCustomView.findViewById(R.id.myEventsTimestamp);
-            clockText.setText("10:00"); //Event.getTimestamp());
+        final TextClock clockText = (TextClock)myEventCustomView.findViewById(R.id.myEventsTimestamp);
+        clockText.setText("10:00"); //Event.getTimestamp());
 
-            final TextView textLocation = (TextView)myEventCustomView.findViewById(R.id.myEventsLocation);
-            textLocation.setText("hos kaj"); //Event.getLocation_Lat() + Event.getLocation_Lng());
+        final TextView textLocation = (TextView)myEventCustomView.findViewById(R.id.myEventsLocation);
+        textLocation.setText("1313");//Event.getLocation_Lat() + " " + Event.getLocation_Lng());
 
+        final TextView creator = (TextView)myEventCustomView.findViewById(R.id.Creator);
+        textLocation.setText("myself");//Event.getCreator();
 
 
         final TextView commentsNumber = (TextView)myEventCustomView.findViewById(R.id.MyEventsNumberOfComments);
