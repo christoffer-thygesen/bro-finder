@@ -53,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(this,MyProfileActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.myevents_action:
+                Intent intent2 = new Intent(this,MyEventsActivity.class);
+                startActivity(intent2);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
