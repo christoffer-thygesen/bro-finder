@@ -35,7 +35,7 @@ public class MyEventsAdapter extends ArrayAdapter<Event> {
         textDescription.setText("This is description");//Event.getDesc());
 
         final TextView textDate = (TextView)myEventCustomView.findViewById(R.id.myEventsDate);
-        String date = "29/01/2018"; //Event.getDay() + Event.getMonth() + Event.getYear();
+        String date = "29/01\n2018"; //Event.getDay() + Event.getMonth() + Event.getYear();
         textDate.setText(date);
 
         final TextClock clockText = (TextClock)myEventCustomView.findViewById(R.id.myEventsTimestamp);

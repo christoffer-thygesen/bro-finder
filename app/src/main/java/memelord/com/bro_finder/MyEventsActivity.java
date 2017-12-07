@@ -61,12 +61,13 @@ ListView participatingEvents = (ListView)findViewById(R.id.myParticipatingEvents
 
 
     }
-/*
+
     public void checkBoxAll(View v){
-int events = myEvents.getCount();
+        /*
+int events = MyEventsActivity().getCount();
 for(int i = 0; i<events;i++){
 myEvents.setItemChecked(i,true);
-}}*/
+}*/}
 
 
     public void refreshButton(View v){
@@ -74,6 +75,14 @@ myEvents.setItemChecked(i,true);
         recreate();
         Toast.makeText( MyEventsActivity.this, "Refreshed page",
                 Toast.LENGTH_SHORT).show();
+    }
+
+    public void deleteEvents(View v){
+        /*for(int i = 0; i<myEventsList.getCount();i++){
+            if(myEventsList.isChecked){
+                //send delete information to database
+            }
+        }*/
     }
 
 

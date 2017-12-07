@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progressValue, boolean fromUser) {
                 progress = progressValue;
+                searchRadiusText.setText("Distance " + progress + " km");
             }
 
             @Override
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 searchRadiusText.setText("Distance " + progress + " km");
+                //set new radius by method & call recreate()?
             }
         });
     }
