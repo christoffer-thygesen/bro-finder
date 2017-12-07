@@ -81,7 +81,10 @@ public class CreateEventActivity extends AppCompatActivity {
         chooseLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                int PLACE_PICKER_REQUEST = 1;
+                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+
+                startActivityForResult(builder.build(this), PLACE_PICKER_REQUEST);
             }
         });
     }
