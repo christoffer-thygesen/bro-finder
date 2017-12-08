@@ -3,7 +3,6 @@
     package="memelord.com.bro_finder">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
@@ -27,6 +26,8 @@
         </activity>
         <activity android:name=".LoginActivity"
             android:parentActivityName=".MainActivity"/> <!---> Login Activity Child of Main <-->
+        <activity android:name=".MyEventsActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
@@ -36,9 +37,8 @@
         <activity android:name=".MyProfileActivity" />
         <activity android:name=".ForgotPasswordActivity"
             android:parentActivityName=".LoginActivity"></activity> <!---> ForgotPassword Activity Child of Login <-->
-        
-        <activity android:name=".MyEventsActivity"></activity>
 
+        <activity android:name=".CreateEventActivity"/>
     </application>
 
     </manifest>

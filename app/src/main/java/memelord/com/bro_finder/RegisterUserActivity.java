@@ -57,10 +57,6 @@ public class RegisterUserActivity extends AppCompatActivity {
         String password = newPassword.getText().toString();
         userName = newUsername.getText().toString();
 
-//        Toast.makeText(RegisterUserActivity.this, "You clicked the button!",
-//                Toast.LENGTH_SHORT).show();
-
-
         createAccount(email,password);
     }
 
@@ -71,7 +67,6 @@ public class RegisterUserActivity extends AppCompatActivity {
         if (!validateForm()) {
             return;
         }
-
 
         broAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -99,9 +94,7 @@ public class RegisterUserActivity extends AppCompatActivity {
                         }
                     }
                 });
-
     }
-
 
     private boolean validateForm() {
         boolean valid = true;
