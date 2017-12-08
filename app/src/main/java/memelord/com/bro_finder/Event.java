@@ -11,34 +11,35 @@ import java.util.Map;
 public class Event implements Serializable {
 
     private String id;
-    private String desc;
     private String title;
+    private String desc;
     private String commentsID;
     private String creator;
     //date, because everything else is hard
     private int day;
     private int month;
     private int year;
-    private long timestamp;
+    private int hour;
+    private int minute;
     //location
     private double location_Lat;
     private double location_Lng;
 
-    //public Event() {}
+    public Event() {}
 
-    public Event(String id, String desc, String title, String commentsID, String creator, int day,
-                 int month, int year, long timestamp, double location_Lat, double location_Lng) {
+    public Event(String id, String title, String desc, String commentsID, String creator, int day, int month, int year, int hour, int minute, double location_Lat, double location_Lng) {
         this.id = id;
-        this.desc = desc;
         this.title = title;
+        this.desc = desc;
         this.commentsID = commentsID;
         this.creator = creator;
         this.day = day;
         this.month = month;
         this.year = year;
-        this.timestamp = timestamp;
+        this.hour = hour;
+        this.minute = minute;
         this.location_Lat = location_Lat;
-        this.location_Lng = location_Lat;
+        this.location_Lng = location_Lng;
     }
 
     public String getId() {
@@ -105,12 +106,20 @@ public class Event implements Serializable {
         this.year = year;
     }
 
-    public long getTimestamp() {
-        return timestamp;
+    public int getHour() {
+        return hour;
     }
 
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public int getMinute() {
+        return minute;
+    }
+
+    public void setMinute(int minute) {
+        this.minute = minute;
     }
 
     public double getLocation_Lat() {
@@ -133,14 +142,15 @@ public class Event implements Serializable {
     public String toString() {
         return "Event{" +
                 "id='" + id + '\'' +
-                ", desc='" + desc + '\'' +
                 ", title='" + title + '\'' +
+                ", desc='" + desc + '\'' +
                 ", commentsID='" + commentsID + '\'' +
                 ", creator='" + creator + '\'' +
                 ", day=" + day +
                 ", month=" + month +
                 ", year=" + year +
-                ", timestamp=" + timestamp +
+                ", hour=" + hour +
+                ", minute=" + minute +
                 ", location_Lat=" + location_Lat +
                 ", location_Lng=" + location_Lng +
                 '}';
@@ -156,7 +166,8 @@ public class Event implements Serializable {
         result.put("day", day);
         result.put("month", month);
         result.put("year", year);
-        result.put("timestamp", timestamp);
+        result.put("hour", hour);
+        result.put("minute", minute);
         result.put("location_Lat", location_Lat);
         result.put("location_Lng", location_Lng);
         return result;

@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.ListView;
 
+import com.google.android.gms.location.places.Place;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -15,6 +16,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.Calendar;
 
 /**
  * Created by stoff on 01-12-2017.
@@ -161,27 +164,6 @@ public class DatabaseManager implements ChildEventListener {
         databaseUsers.child(userID).setValue(user);
     }
 
-    public void getUsername(String id) {
-        final User[] user = new User[1];
-        databaseUsers.child(id);
-        Query q = databaseUsers.orderByKey()
-                .equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid());
-
-        q.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                user[0] = dataSnapshot.getValue(User.class);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        Log.d("Tag1", user[0].getId());
-        Log.d("Tag2", user[0].getUsername());
-    }
-
     public void deleteUser(String userID) {
         databaseUsers.child(userID).removeValue();
     }
@@ -191,8 +173,20 @@ public class DatabaseManager implements ChildEventListener {
         eventUpdater = new EventUpdater(activity, eventListView);
     }
 
-    public void addEvent(Event event) {
+    public void addEvent(String title, String desc, String creator,
+                         Calendar calendar, Place location) {
 
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH);
+        int year = calendar.get(Calendar.YEAR);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        double lat = location.getLatLng().latitude;
+        double lng = location.getLatLng().longitude;
+        Event event = new Event(createEventID(), title, desc, createCommentID(),
+                creator, day, month, year, hour, minute, lat, lng);
+
+        databaseEvents.child(createEventID()).setValue(event);
     }
 
     public void destroy() {

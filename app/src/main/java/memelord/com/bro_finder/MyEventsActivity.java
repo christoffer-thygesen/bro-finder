@@ -28,12 +28,12 @@ public class MyEventsActivity extends AppCompatActivity {
         final MyEventsAdapter myAdapter = new MyEventsAdapter(this,myEventsList);
         final MyEventsAdapter myParticipatingEventsAdapter = new MyEventsAdapter(this,myEventsList);
 
-        Event a = new Event("123", "Kicking a ball", "Football", "abc", "John", 5, 2,  2017, 06022017, 333, 444);
-        Event b = new Event("1234", "Kicking a bottle", "Beer", "ab", "Jo", 6, 2,  2017, 06022017, 333, 444);
-        Event c = new Event("1235", "Kicking ", "Walk", "abcd", "Johnathan", 5, 3,  2017, 06022017, 333, 444);
-        myEventsList.add(0,a);
-        myEventsList.add(1,b);
-        myEventsList.add(2,c);
+//        Event a = new Event("123", "Kicking a ball", "Football", "abc", "John", 5, 2,  2017, 06022017, 333, 444);
+//        Event b = new Event("1234", "Kicking a bottle", "Beer", "ab", "Jo", 6, 2,  2017, 06022017, 333, 444);
+//        Event c = new Event("1235", "Kicking ", "Walk", "abcd", "Johnathan", 5, 3,  2017, 06022017, 333, 444);
+//        myEventsList.add(0,a);
+//        myEventsList.add(1,b);
+//        myEventsList.add(2,c);
 
 
         ListView myEvents = findViewById(R.id.MyEventList);

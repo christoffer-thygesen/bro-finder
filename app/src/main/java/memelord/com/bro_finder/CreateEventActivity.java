@@ -31,13 +31,14 @@ public class CreateEventActivity extends AppCompatActivity {
 
     private int PLACE_PICKER_REQUEST = 1;
 
-    private String id;
+    private String title;
     private String desc;
-    private String commentsID;
     private String creator;
     private Calendar myCalendar;
     private Place location;
 
+    private EditText editTitle;
+    private EditText editDesc;
     private EditText chooseDate;
     private EditText chooseTime;
     private EditText chooseLocation;
@@ -51,14 +52,14 @@ public class CreateEventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_event);
 
         databaseManager = DatabaseManager.getInstance(this);
+        editTitle = findViewById(R.id.editTitle);
+        editDesc = findViewById(R.id.editDesc);
         chooseDate = findViewById(R.id.textDatePicker);
         chooseTime = findViewById(R.id.textTimePicker);
         chooseLocation = findViewById(R.id.textLocationPicker);
         buttonFinish = findViewById(R.id.buttonFinish);
         myCalendar = Calendar.getInstance();
         broAuth = FirebaseAuth.getInstance();
-
-        final Calendar myCalendar = Calendar.getInstance();
 
         //DatePickerDialog - pop up
         final DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
@@ -122,7 +123,11 @@ public class CreateEventActivity extends AppCompatActivity {
         buttonFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                databaseManager.getUsername(broAuth.getCurrentUser().getUid());
+                title = editTitle.getText().toString();
+                desc = editDesc.getText().toString();
+                creator = broAuth.getCurrentUser().getUid();
+
+                databaseManager.addEvent(title, desc, creator, myCalendar, location);
             }
         });
     }
@@ -140,10 +145,8 @@ public class CreateEventActivity extends AppCompatActivity {
         }
     }
 
-    private void AddEvent(String id, String desc, String title, String commentsID,
-                          String creator, int day,
-                          int month, int year, long timestamp, double location_Lat,
-                          double location_Lng) {
+    private void AddEvent(String title, String creator, Calendar calendar, Place location) {
+
         if(!validateForm()) { return; }
 
         FirebaseUser user = broAuth.getCurrentUser();
@@ -156,8 +159,8 @@ public class CreateEventActivity extends AppCompatActivity {
 //        location;
 
         Event event = new Event(null, null, null, null, null,
-                0, 0,0,0,0,0);
-        databaseManager.addEvent(event);
+                0, 0,0,0,0,0,0);
+        //databaseManager.addEvent(event);
     }
 
     private boolean validateForm() {
