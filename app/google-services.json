@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "178519433008-bcvj6q2hqprhv4u2rt8hesdn71hcgb52.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "memelord.com.bro_finder",
+            "certificate_hash": "f7dbb0bfe99bb143eb6bca236fdd2ffeb8e0a74b"
+          }
+        },
+        {
           "client_id": "178519433008-e8tn5dhlbkuik6vn4eo4l0omid1dd73j.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -37,7 +45,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDrtz4yOHV4_AbLH1TrL5QIST_W-OGebkw"
+          "current_key": "AIzaSyD--azcPwxgyCch22_jm_fKUNEe9aB5zFo"
         }
       ],
       "services": {
