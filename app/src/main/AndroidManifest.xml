@@ -24,21 +24,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"
-            android:parentActivityName=".MainActivity"/> <!---> Login Activity Child of Main <-->
-        <activity android:name=".MyEventsActivity"
-            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".LoginActivity"
+            android:parentActivityName=".MainActivity" /> <!-- -> Login Activity Child of Main < -->
+        <activity
+            android:name=".MyEventsActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity"/> <!---> Setting Activity Child of Main <-->
-        <activity android:name=".RegisterUserActivity"
-            android:parentActivityName=".LoginActivity"/> <!---> Register Activity Child of Login <-->
+            android:parentActivityName=".MainActivity" /> <!-- -> Setting Activity Child of Main < -->
+        <activity
+            android:name=".RegisterUserActivity"
+            android:parentActivityName=".LoginActivity" /> <!-- -> Register Activity Child of Login < -->
         <activity android:name=".MyProfileActivity" />
-        <activity android:name=".ForgotPasswordActivity"
-            android:parentActivityName=".LoginActivity"></activity> <!---> ForgotPassword Activity Child of Login <-->
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:parentActivityName=".LoginActivity" /> <!-- -> ForgotPassword Activity Child of Login < -->
 
-        <activity android:name=".CreateEventActivity"/>
+        <activity android:name=".CreateEventActivity" />
+        <activity android:name=".EventAdapter"></activity>
     </application>
 
-    </manifest>
+</manifest>

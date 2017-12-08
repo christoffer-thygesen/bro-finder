@@ -17,6 +17,8 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private DatabaseManager databaseManager;
@@ -31,12 +33,26 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+        final ListView events = findViewById(R.id.eventList);
+        final ArrayList<Event> eventsListing = new ArrayList<>();
+        final EventAdapter myAdapter2 = new EventAdapter(this, eventsListing);
+
+        Event d = new Event("123", "Kicking a ball", "Football", "abc", "John", 5, 2, 2017, 06022017, 333, 444, 555);
+        Event e = new Event("1234", "Kicking a bottle", "Beer", "ab", "Jo", 6, 2, 2017, 06022017, 333, 444, 555);
+        Event f = new Event("1235", "Kicking ", "Walk", "abcd", "Johnathan", 5, 3, 2017, 06022017, 333, 444, 555);
+        eventsListing.add(0, d);
+        eventsListing.add(1, e);
+        eventsListing.add(2, f);
+
+        events.setAdapter(myAdapter2);
+
 
         initializeSeekbar(); //initializes seekbar with units and seekbar.onchangelistener
 
@@ -51,9 +67,10 @@ public class MainActivity extends AppCompatActivity {
         broActionBar.setDisplayHomeAsUpEnabled(true);
 
         //setting Search Radius Seekbar
+        searchRadius.setProgress(10); //default value 10 km
         searchRadiusText.setText("Distance " + searchRadius.getProgress() + " Km");
         searchRadius.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            int progress = 0;
+            int progress = 10; //default value 10 km
             @Override
             public void onProgressChanged(SeekBar seekBar, int progressValue, boolean fromUser) {
                 progress = progressValue;

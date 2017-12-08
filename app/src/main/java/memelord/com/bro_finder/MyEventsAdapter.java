@@ -29,7 +29,7 @@ public class MyEventsAdapter extends ArrayAdapter<Event> {
         final Event currentEvent = getItem(position);
 
         final TextView textTitle = (TextView)myEventCustomView.findViewById(R.id.myEventsTitle);
-        textTitle.setText("this is title");
+        textTitle.setText("this is title");//Event.getTitle();
 
         final TextView textDescription = (TextView)myEventCustomView.findViewById(R.id.myEventsDescription);
         textDescription.setText("This is description");//Event.getDesc());

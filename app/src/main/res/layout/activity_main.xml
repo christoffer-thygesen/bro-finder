@@ -37,6 +37,15 @@
         android:text="distance"
         android:layout_gravity="center"/>
 
+    <ListView
+        android:id="@+id/eventList"
+        android:layout_width="384dp"
+        android:layout_height="315dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:dividerHeight="2dp"></ListView>
 
     <Button
         android:id="@+id/button2"
@@ -44,7 +53,7 @@
         android:layout_height="wrap_content"
         android:text="Button to login page"
         android:onClick="tologin"
-        android:layout_marginTop="300dp"/>
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/buttonCreateEvent"
