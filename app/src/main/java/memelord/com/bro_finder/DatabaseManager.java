@@ -234,4 +234,10 @@ public class DatabaseManager implements ChildEventListener {
 
     }
     //endregionBut
+
+    public void addComment(){
+        Comment comment = new Comment("123ds", "fasfas3", 1231, 213);
+        databaseComments.child("sadfasf").setValue(comment);
+        Log.d("Testing", "I HAVE BEEN CREATED");
+    }
 }

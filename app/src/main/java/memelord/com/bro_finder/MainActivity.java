@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         //init databaseManager
         databaseManager = DatabaseManager.getInstance(this);
         //databaseManager.initialize(this, eventListView);
+        databaseManager.addComment();
 
      android.support.v7.widget.Toolbar brobar = (Toolbar)findViewById(R.id.toptoolbar);
         setSupportActionBar(brobar);
