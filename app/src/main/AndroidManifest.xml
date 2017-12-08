@@ -43,7 +43,9 @@
             android:parentActivityName=".LoginActivity" /> <!-- -> ForgotPassword Activity Child of Login < -->
 
         <activity android:name=".CreateEventActivity" />
-        <activity android:name=".EventAdapter"></activity>
+        <activity android:name=".EventAdapter" />
+        <activity android:name=".Comment" />
+        <activity android:name=".CommentList"></activity>
     </application>
 
 </manifest>
